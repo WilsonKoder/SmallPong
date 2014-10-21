@@ -30,8 +30,8 @@
       <file leaf-file-name="pong.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pong.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7457627" vertical-offset="1360" max-vertical-offset="1950">
-              <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.87288135" vertical-offset="565" max-vertical-offset="1980">
+              <caret line="72" column="16" selection-start-line="72" selection-start-column="16" selection-end-line="72" selection-end-column="16" />
               <folding>
                 <element signature="e#28#41#0" expanded="true" />
               </folding>
@@ -369,8 +369,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pong.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7457627" vertical-offset="1360" max-vertical-offset="1950">
-          <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.87288135" vertical-offset="565" max-vertical-offset="1980">
+          <caret line="72" column="16" selection-start-line="72" selection-start-column="16" selection-end-line="72" selection-end-column="16" />
           <folding>
             <element signature="e#28#41#0" expanded="true" />
           </folding>

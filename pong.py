@@ -47,6 +47,8 @@ while running:
         if event.type == pygame.QUIT:
             running = False
         elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_f:
+                ball_velocity = (ball_velocity * 2)
             if event.key == pygame.K_w:
                 paddle1_up = True
             if event.key == pygame.K_s:
@@ -65,14 +67,14 @@ while running:
             if event.key == pygame.K_DOWN:
                 paddle2_down = False
 
-        if paddle1_up:
-            y1 -= 10
-        if paddle1_down:
-            y1 += 10
-        if paddle2_up:
-            y2 -= 10
-        if paddle2_down:
-            y2 += 10
+    if paddle1_up:
+        y1 -= 10
+    if paddle1_down:
+        y1 += 10
+    if paddle2_up:
+        y2 -= 10
+    if paddle2_down:
+        y2 += 10
 
 
     #Audio
@@ -100,14 +102,14 @@ while running:
 
 
     #Collision Checking
-    if int(ball_pos[0]) in range(0, 30) and int(ball_pos[1]) in range(y1 - 40, y1 + 40):
+    if int(ball_pos[0]) in range(0, 30) and int(ball_pos[1]) in range(y1 - 50, y1 + 50):
         ball_velocity = (ball_velocity * -1)
         ball_velocity[0] = random.randint(1, 11)
         ball_velocity[1] = random.randint(-10, 11)
 
-    if int(ball_pos[0]) in range(777, 800) and int(ball_pos[1]) in range(y1 - 40, y1 + 40):
+    if int(ball_pos[0]) in range(770, 800) and int(ball_pos[1]) in range(y2 - 50, y2 + 50):
         ball_velocity = (ball_velocity * -1)
-        ball_velocity[0] = random.randint(-1, -11)
+        ball_velocity[0] = random.randint(-11, -1)
         ball_velocity[1] = random.randint(-10, 11)
 
     #clear the screen
