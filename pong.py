@@ -106,11 +106,17 @@ while running:
     #New Collision Detection from /u/edbluetooth
 
     if  (0 < int(ball_pos[0]) <=30) and (y1 - 55 < int(ball_pos[1]) <= y1 + 55):
+        pygame.mixer.music.load("Audio/hit.wav")
+        pygame.mixer.music.stop()
+        pygame.mixer.music.play()
         ball_velocity = (ball_velocity * -1)
         ball_velocity[0] = random.randint(1, 11)
         ball_velocity[1] = random.randint(-10, 11)
 
     if  (755 < int(ball_pos[0]) <=800) and (y2 - 55 < int(ball_pos[1]) <= y2 + 55):
+        pygame.mixer.music.load("Audio/hit.wav")
+        pygame.mixer.music.stop()
+        pygame.mixer.music.play()
         ball_velocity = (ball_velocity * -1)
         ball_velocity[0] = random.randint(-11, -1)
         ball_velocity[1] = random.randint(-10, 11)
