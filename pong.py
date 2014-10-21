@@ -5,18 +5,18 @@ import pygame.mixer
 import random
 import sys
 
-
-
-
 white = 255, 255, 255
+black = 0, 0, 0
+red = 255, 0, 0
+blue = 0, 255, 0
+green = 0, 0, 255
 
 pygame.init()
 pygame.mixer.init()
 
 window_size = (800, 600)
 screen = pygame.display.set_mode(window_size)
-pygame.display.set_caption("Pong - Wilson Koder")
-
+pygame.display.set_caption("Pong - Wilson Koder - Started 21/10/14 - wilson@wilsonkoder.com")
 
 paddle1 = pygame.image.load("Images/paddle.png")
 paddle2 = pygame.image.load("Images/paddle.png")
@@ -105,16 +105,15 @@ while running:
 
     #New Collision Detection from /u/edbluetooth
 
-    if  (0 < int(ball_pos[0]) <=30) and (y1 - 50 < int(ball_pos[1]) <= y1 + 50):
+    if  (0 < int(ball_pos[0]) <=30) and (y1 - 55 < int(ball_pos[1]) <= y1 + 55):
         ball_velocity = (ball_velocity * -1)
         ball_velocity[0] = random.randint(1, 11)
         ball_velocity[1] = random.randint(-10, 11)
 
-    if  (755 < int(ball_pos[0]) <=800) and (y1 - 50 < int(ball_pos[1]) <= y2 + 50):
+    if  (755 < int(ball_pos[0]) <=800) and (y2 - 55 < int(ball_pos[1]) <= y2 + 55):
         ball_velocity = (ball_velocity * -1)
         ball_velocity[0] = random.randint(-11, -1)
         ball_velocity[1] = random.randint(-10, 11)
-
 
     #clear the screen
     screen.fill(white)
