@@ -1,0 +1,149 @@
+<html>
+<head>
+<title>pong.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(169,183,198); }
+.s1 { color: rgb(0,128,128); }
+.s2 { color: rgb(204,120,50); font-weight: bold; }
+.s3 { color: rgb(104,151,187); }
+.s4 { color: rgb(204,120,50); }
+.s5 { color: rgb(128,128,128); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+pong.py</FONT>
+</center></TD></TR></TABLE>
+<pre>
+
+<span class="s0">__author__ = </span><span class="s1">'WilsonKoder'</span><span class="s0"> 
+ 
+</span><span class="s2">import </span><span class="s0">pygame 
+</span><span class="s2">import </span><span class="s0">pygame.mixer 
+</span><span class="s2">import </span><span class="s0">random 
+</span><span class="s2">import </span><span class="s0">sys 
+ 
+ 
+ 
+ 
+white = </span><span class="s3">255</span><span class="s4">, </span><span class="s3">255</span><span class="s4">, </span><span class="s3">255</span><span class="s0"> 
+ 
+pygame.init() 
+pygame.mixer.init() 
+ 
+window_size = (</span><span class="s3">800</span><span class="s4">, </span><span class="s3">600</span><span class="s0">) 
+screen = pygame.display.set_mode(window_size) 
+pygame.display.set_caption(</span><span class="s1">&quot;Pong - Wilson Koder&quot;</span><span class="s0">) 
+ 
+ 
+paddle1 = pygame.image.load(</span><span class="s1">&quot;Images/paddle.png&quot;</span><span class="s0">) 
+paddle2 = pygame.image.load(</span><span class="s1">&quot;Images/paddle.png&quot;</span><span class="s0">) 
+ball = pygame.image.load(</span><span class="s1">&quot;Images/ball.png&quot;</span><span class="s0">) 
+bg = pygame.image.load(</span><span class="s1">&quot;Images/bg.png&quot;</span><span class="s0">) 
+ 
+running = </span><span class="s2">True</span><span class="s0"> 
+x1 = </span><span class="s3">5</span><span class="s0"> 
+y1 = </span><span class="s3">260</span><span class="s0"> 
+x2 = </span><span class="s3">780</span><span class="s0"> 
+y2 = </span><span class="s3">260</span><span class="s0"> 
+ball_pos = pygame.math.Vector2(</span><span class="s3">385</span><span class="s4">, </span><span class="s3">285</span><span class="s0">) 
+ball_velocity = pygame.math.Vector2(random.randint(-</span><span class="s3">10</span><span class="s4">, </span><span class="s3">11</span><span class="s0">)</span><span class="s4">, </span><span class="s0">random.randint(-</span><span class="s3">10</span><span class="s4">, </span><span class="s3">11</span><span class="s0">)) 
+paddle1_up = </span><span class="s2">False</span><span class="s0"> 
+paddle1_down = </span><span class="s2">False</span><span class="s0"> 
+paddle2_up = </span><span class="s2">False</span><span class="s0"> 
+paddle2_down = </span><span class="s2">False</span><span class="s0"> 
+clock = pygame.time.Clock() 
+ 
+</span><span class="s2">while </span><span class="s0">running: 
+    </span><span class="s5">#FPS</span><span class="s0"> 
+    clock.tick(</span><span class="s3">60</span><span class="s0">) 
+    </span><span class="s5">#move ball</span><span class="s0"> 
+    ball_pos += ball_velocity 
+ 
+    </span><span class="s5">#Input</span><span class="s0"> 
+    </span><span class="s2">for </span><span class="s0">event </span><span class="s2">in </span><span class="s0">pygame.event.get(): 
+        </span><span class="s2">if </span><span class="s0">event.type == pygame.QUIT: 
+            running = </span><span class="s2">False</span><span class="s0"> 
+        </span><span class="s2">elif </span><span class="s0">event.type == pygame.KEYDOWN: 
+            </span><span class="s2">if </span><span class="s0">event.key == pygame.K_w: 
+                paddle1_up = </span><span class="s2">True</span><span class="s0"> 
+            </span><span class="s2">if </span><span class="s0">event.key == pygame.K_s: 
+                paddle1_down = </span><span class="s2">True</span><span class="s0"> 
+            </span><span class="s2">if </span><span class="s0">event.key == pygame.K_UP: 
+                paddle2_up = </span><span class="s2">True</span><span class="s0"> 
+            </span><span class="s2">if </span><span class="s0">event.key == pygame.K_DOWN: 
+                paddle2_down = </span><span class="s2">True</span><span class="s0"> 
+        </span><span class="s2">elif </span><span class="s0">event.type == pygame.KEYUP: 
+            </span><span class="s2">if </span><span class="s0">event.key == pygame.K_w: 
+                paddle1_up = </span><span class="s2">False</span><span class="s0"> 
+            </span><span class="s2">if </span><span class="s0">event.key == pygame.K_s: 
+                paddle1_down = </span><span class="s2">False</span><span class="s0"> 
+            </span><span class="s2">if </span><span class="s0">event.key == pygame.K_UP: 
+                paddle2_up = </span><span class="s2">False</span><span class="s0"> 
+            </span><span class="s2">if </span><span class="s0">event.key == pygame.K_DOWN: 
+                paddle2_down = </span><span class="s2">False</span><span class="s0"> 
+ 
+        </span><span class="s2">if </span><span class="s0">paddle1_up: 
+            y1 -= </span><span class="s3">10</span><span class="s0"> 
+        </span><span class="s2">if </span><span class="s0">paddle1_down: 
+            y1 += </span><span class="s3">10</span><span class="s0"> 
+        </span><span class="s2">if </span><span class="s0">paddle2_up: 
+            y2 -= </span><span class="s3">10</span><span class="s0"> 
+        </span><span class="s2">if </span><span class="s0">paddle2_down: 
+            y2 += </span><span class="s3">10</span><span class="s0"> 
+ 
+ 
+    </span><span class="s5">#Audio</span><span class="s0"> 
+    </span><span class="s2">if </span><span class="s0">ball_pos[</span><span class="s3">1</span><span class="s0">] &gt; window_size[</span><span class="s3">1</span><span class="s0">]: 
+        pygame.mixer.music.load(</span><span class="s1">&quot;Audio/collision.wav&quot;</span><span class="s0">) 
+        pygame.mixer.music.stop() 
+        pygame.mixer.music.play() 
+        ball_velocity[</span><span class="s3">1</span><span class="s0">] = (ball_velocity[</span><span class="s3">1</span><span class="s0">] * -</span><span class="s3">1</span><span class="s0">) 
+ 
+    </span><span class="s2">elif </span><span class="s0">ball_pos[</span><span class="s3">1</span><span class="s0">] &lt; </span><span class="s3">0</span><span class="s0">: 
+        pygame.mixer.music.load(</span><span class="s1">&quot;Audio/collision.wav&quot;</span><span class="s0">) 
+        pygame.mixer.music.stop() 
+        pygame.mixer.music.play() 
+        ball_velocity[</span><span class="s3">1</span><span class="s0">] = (ball_velocity[</span><span class="s3">1</span><span class="s0">] * -</span><span class="s3">1</span><span class="s0">) 
+ 
+    </span><span class="s2">if </span><span class="s0">ball_pos[</span><span class="s3">0</span><span class="s0">] &gt; window_size[</span><span class="s3">0</span><span class="s0">]: 
+        pygame.mixer.music.load(</span><span class="s1">&quot;Audio/endgame.wav&quot;</span><span class="s0">) 
+        pygame.mixer.music.stop() 
+        pygame.mixer.music.play() 
+ 
+    </span><span class="s2">if </span><span class="s0">ball_pos[</span><span class="s3">0</span><span class="s0">] &lt; </span><span class="s3">0</span><span class="s0">: 
+        pygame.mixer.music.load(</span><span class="s1">&quot;Audio/endgame.wav&quot;</span><span class="s0">) 
+        pygame.mixer.music.stop() 
+        pygame.mixer.music.play() 
+ 
+ 
+    </span><span class="s5">#Collision Checking</span><span class="s0"> 
+    </span><span class="s2">if </span><span class="s0">int(ball_pos[</span><span class="s3">0</span><span class="s0">]) </span><span class="s2">in </span><span class="s0">range(</span><span class="s3">0</span><span class="s4">, </span><span class="s3">30</span><span class="s0">) </span><span class="s2">and </span><span class="s0">int(ball_pos[</span><span class="s3">1</span><span class="s0">]) </span><span class="s2">in </span><span class="s0">range(y1 - </span><span class="s3">40</span><span class="s4">, </span><span class="s0">y1 + </span><span class="s3">40</span><span class="s0">): 
+        ball_velocity = (ball_velocity * -</span><span class="s3">1</span><span class="s0">) 
+        ball_velocity[</span><span class="s3">0</span><span class="s0">] = random.randint(</span><span class="s3">1</span><span class="s4">, </span><span class="s3">11</span><span class="s0">) 
+        ball_velocity[</span><span class="s3">1</span><span class="s0">] = random.randint(-</span><span class="s3">10</span><span class="s4">, </span><span class="s3">11</span><span class="s0">) 
+ 
+    </span><span class="s2">if </span><span class="s0">int(ball_pos[</span><span class="s3">0</span><span class="s0">]) </span><span class="s2">in </span><span class="s0">range(</span><span class="s3">777</span><span class="s4">, </span><span class="s3">800</span><span class="s0">) </span><span class="s2">and </span><span class="s0">int(ball_pos[</span><span class="s3">1</span><span class="s0">]) </span><span class="s2">in </span><span class="s0">range(y1 - </span><span class="s3">40</span><span class="s4">, </span><span class="s0">y1 + </span><span class="s3">40</span><span class="s0">): 
+        ball_velocity = (ball_velocity * -</span><span class="s3">1</span><span class="s0">) 
+        ball_velocity[</span><span class="s3">0</span><span class="s0">] = random.randint(-</span><span class="s3">1</span><span class="s4">, </span><span class="s0">-</span><span class="s3">11</span><span class="s0">) 
+        ball_velocity[</span><span class="s3">1</span><span class="s0">] = random.randint(-</span><span class="s3">10</span><span class="s4">, </span><span class="s3">11</span><span class="s0">) 
+ 
+    </span><span class="s5">#clear the screen</span><span class="s0"> 
+    screen.fill(white) 
+ 
+    </span><span class="s5">#draw everything again</span><span class="s0"> 
+    screen.blit(bg</span><span class="s4">, </span><span class="s0">(</span><span class="s3">0</span><span class="s4">, </span><span class="s3">0</span><span class="s0">)) 
+    screen.blit(paddle1</span><span class="s4">, </span><span class="s0">(x1</span><span class="s4">, </span><span class="s0">y1)) 
+    screen.blit(paddle2</span><span class="s4">, </span><span class="s0">(x2</span><span class="s4">, </span><span class="s0">y2)) 
+    screen.blit(ball</span><span class="s4">, </span><span class="s0">ball_pos) 
+ 
+    </span><span class="s5">#render it</span><span class="s0"> 
+    pygame.display.flip() 
+ 
+sys.exit()</span></pre>
+</body>
+</html>
