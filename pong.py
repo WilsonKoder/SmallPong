@@ -101,21 +101,15 @@ while running:
         pygame.mixer.music.play()
 
 
-    #Collision Checking
-    #if int(ball_pos[0]) in range(0, 30) and int(ball_pos[1]) in range(y1 - 50, y1 + 50):
-    #    ball_velocity = (ball_velocity * -1)
-    #    ball_velocity[0] = random.randint(1, 11)
-    #    ball_velocity[1] = random.randint(-10, 11)
+    #Collision Checking - Still glitchy, but we're getting there
 
-    #if int(ball_pos[0]) in range(770, 800) and int(ball_pos[1]) in range(y2 - 50, y2 + 50):
-    #    ball_velocity = (ball_velocity * -1)
-    #    ball_velocity[0] = random.randint(-11, -1)
-    #   ball_velocity[1] = random.randint(-10, 11)
+    #New Collision Detection from /u/edbluetooth
 
     if  (0 < int(ball_pos[0]) <=30) and (y1 - 50 < int(ball_pos[1]) <= y1 + 50):
         ball_velocity = (ball_velocity * -1)
         ball_velocity[0] = random.randint(1, 11)
         ball_velocity[1] = random.randint(-10, 11)
+
     if  (755 < int(ball_pos[0]) <=800) and (y1 - 50 < int(ball_pos[1]) <= y2 + 50):
         ball_velocity = (ball_velocity * -1)
         ball_velocity[0] = random.randint(-11, -1)
