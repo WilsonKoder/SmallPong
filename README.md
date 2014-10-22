@@ -1,5 +1,5 @@
-SmallPong
-=========
+SmallPong / Pyong
+=================
 
 Small implementation of pong using the pygame library and python 3.4 :) 
 GPL v3 license,  https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3) Wilson Koder    
