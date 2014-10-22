@@ -78,7 +78,7 @@ while running:
 
 
     #Audio
-    if ball_pos[1] > window_size[1]:
+    if ball_pos[1] > window_size[1] - 30:
         pygame.mixer.music.load("Audio/collision.wav")
         pygame.mixer.music.stop()
         pygame.mixer.music.play()
