@@ -16,14 +16,18 @@ Player 1 (Left) Controls:
 =========================
 
 W - Up
+
 S - Down
+
 F - Double ball speed
 
 Player 2 (Right) Controls:
 ==========================
 
 Up Arrow - Up
+
 Down Arrow - Down
+
 F - Double ball speed
 
 Special Thanks to: 
