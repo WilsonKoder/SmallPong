@@ -41,9 +41,13 @@ Contact Info:
 Wilson Koder - Hong Kong
 
 wilson.koder.111@gmail.com
+
 wilson@wilsonkoder.com
 
 http://wilsonkoder.com (in development)
+
 https://youtube.com/user/WilsonKoder/
+
 https://github.com/WilsonKoder111
+
 https://reddit.com/u/wilsonkoderhk
