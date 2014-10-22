@@ -94,11 +94,15 @@ while running:
         pygame.mixer.music.load("Audio/endgame.wav")
         pygame.mixer.music.stop()
         pygame.mixer.music.play()
+        ball_velocity = pygame.math.Vector2(random.randint(-10, 11), random.randint(-10, 11))
+        ball_pos = pygame.math.Vector2(385, 285)
 
     if ball_pos[0] < 0:
         pygame.mixer.music.load("Audio/endgame.wav")
         pygame.mixer.music.stop()
         pygame.mixer.music.play()
+        ball_velocity = pygame.math.Vector2(random.randint(-10, 11), random.randint(-10, 11))
+        ball_pos = pygame.math.Vector2(385, 285)
 
 
     #Collision Checking - Still glitchy, but we're getting there
